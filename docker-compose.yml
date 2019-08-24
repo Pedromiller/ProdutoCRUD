@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  mysql: 
+    image: mysql
+    ports:
+      - 3333:3306
+    environment:
+      MYSQL_DATABASE: "produtodb"
+      MYSQL_ROOT_PASSWORD: "123456"
+
+  produtowebapp:
+    image: ${DOCKER_REGISTRY}produtowebapp
+    build:
+      context: .
+      dockerfile: ProdutoWebApp/Dockerfile
+    ports:
+      - 8080:80
+
+ 
+
+
+  
